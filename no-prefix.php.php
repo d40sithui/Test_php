@@ -8,12 +8,13 @@
 
 function noPrefix($words) {
     $len = count($words);
+    $prefix = $words;
     $badSet = null;
  
     
    for($i = 0; $i < $len; $i++){
-        $currentPrefix = $words[$i];
-        $currentPrefixLength = strlen($currentPrefix);
+        $word = $words[$i];
+        $wordLength = strlen($word);
         //$currentPrefixLengthNegative = 0 - $currentPrefixLength;
         
         
@@ -22,20 +23,19 @@ function noPrefix($words) {
         
         for($j = 0; $j < $len; $j++){
             
-            $currentSet = $words[$j];
-            $currentSetLength = strlen($currentSet);
+            $prefix = $words[$j];
+            $prefixLength = strlen($prefix);
             
             
-            //do not compare to itself
             //do not process if prefix is longer than set its comparing against
-            if ($i != $j && $currentPrefixLength <= $currentSetLength){
+            if ( $wordLength > $prefixLength && $i != $j){
                 
-                $prefix = substr($currentSet, 0, $currentPrefixLength);
-               //echo "currentPrefix: $currentPrefix and substr: $prefix\r\n";
+                $currentPrefix = substr($word, 0, $prefixLength);
+               //echo "word: $word and prefix: $prefix and currentPrefix: $currentPrefix\r\n";
                 
                 //current set returns bad set (POSITIVE)
                 if ($prefix == $currentPrefix){
-                    $badSet = $currentSet;
+                    $badSet = $word;
                     //break;
                 }
                 
@@ -43,12 +43,12 @@ function noPrefix($words) {
             
             //breaks if BAD SET is found
             if ($badSet != null){
-                //break;
+                break;
             }
         } //ends for $j
         //breaks if BAD SET is found
         if ($badSet != null){
-            //break;
+            break;
         }
     } //ends for $i
     
