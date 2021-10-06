@@ -1,5 +1,7 @@
 <?php
 
+//https://www.hackerrank.com/challenges/one-week-preparation-kit-queue-using-two-stacks/problem?h_l=interview&playlist_slugs%5B%5D=preparation-kits&playlist_slugs%5B%5D=one-week-preparation-kit&playlist_slugs%5B%5D=one-week-day-five
+
 $a = array(); //store the current queue
 //print_r($arr);
 
